@@ -55,15 +55,15 @@ for detector_id in 0 #1
 do
 detector=${detectors[$detector_id]}
 
-# use DySAW
+# use CALIPER
 poetry run python -u main.py --method $method \
                              --task_name 'long_term_forecast' \
                              --detector $detector\
                              --fix_win 128 \
                              --scale $scale \
                              --drift_detection \
-                             --use_DySAW \
-                             --DySAW_njob 16 \
+                             --use_CALIPER \
+                             --CALIPER_njob 16 \
                              --root_path ./dataset \
                              --verbose $log \
                              --grid_search 1 \
