@@ -147,8 +147,8 @@ def process_file_experiment(file_path: Path, config: Dict, args: argparse.Namesp
             method_name = f"{args.method}"
             if args.drift_detection:
                 method_name += f"+{args.detector}"
-                if getattr(args, 'use_DySAW', False):
-                    method_name += "+DySAW"
+                if getattr(args, 'use_CALIPER', False):
+                    method_name += "+CALIPER"
                 else:
                     method_name += f"+W_{args.fix_win}"
 
@@ -231,8 +231,8 @@ def save_results(results_list: List[pd.DataFrame], time_list: List[pd.DataFrame]
     method_name = args.method
     if args.drift_detection:
         method_name += f"+{args.detector}"
-        if getattr(args, 'use_DySAW', False):
-            method_name += "+DySAW"
+        if getattr(args, 'use_CALIPER', False):
+            method_name += "+CALIPER"
         else:
             method_name += f"+W_{args.fix_win}"
 
