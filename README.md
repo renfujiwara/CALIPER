@@ -1,4 +1,4 @@
-# DySAW
+# CALIPER
 
 ## Usage
 Prepare Data. You can obtain the datasets from the following URL and place it under the "dataset" directory
