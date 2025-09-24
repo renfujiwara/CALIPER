@@ -95,8 +95,8 @@ class Exp_Basic(object):
         config = config_class(**params)
         self.detector = detector_class(config=config)
         
-        # Initialize DySAW for dynamic sliding window adjustment.
-        self.dsw = DySAW(d=self.args.enc_in, pred_len=self.args.pred_len, seed=self.args.exp_seed, n_jobs=self.args.DySAW_njob)
+        # Initialize CALIPER for dynamic sliding window adjustment.
+        self.dsw = CALIPER(d=self.args.enc_in, pred_len=self.args.pred_len, seed=self.args.exp_seed, n_jobs=self.args.CALIPER_njob)
         
         # Minimum data length required to consider a restart.
         self.min_window = np.maximum(self.args.fix_win, (self.args.seq_len + self.args.pred_len + self.args.batch_size))
@@ -546,8 +546,8 @@ class Exp_Basic(object):
         if window_size <= self.min_window:
             return
 
-        if self.args.use_DySAW:
-            # Use DySAW to find an optimal restart point
+        if self.args.use_CALIPER:
+            # Use CALIPER to find an optimal restart point
             should_restart, restart_data, restart_stamps, _ = self.dsw.detect(test_data, win_st, win_ed)
         else:
             # Simple restart strategy: use the whole detected window

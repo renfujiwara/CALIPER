@@ -123,8 +123,8 @@ class ExperimentConfig:
         online_group.add_argument('--lr_test', type=float, default=1e-3, help='Learning rate during online testing/adaptation')
         online_group.add_argument('--drift_detection', action='store_true', help='Enable concept drift detection')
         online_group.add_argument('--detector', type=str, default='ADWIN', help='Concept drift detector to use')
-        online_group.add_argument('--use_DySAW', action='store_true', help='Enable DySAW for drift detection')
-        online_group.add_argument('--DySAW_njob', type=int, default=-1, help='Number of jobs for DySAW')
+        online_group.add_argument('--use_CALIPER', action='store_true', help='Enable CALIPER for drift detection')
+        online_group.add_argument('--CALIPER_njob', type=int, default=-1, help='Number of jobs for CALIPER')
 
 
         # =====================================================================================
